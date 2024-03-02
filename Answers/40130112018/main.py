@@ -32,33 +32,27 @@ def game():
         player_number = input("Player: ")
 
         if curent_number % coeff != 0:
-            if player_number == "hop":
-                print("You lost")
-                break
-            
             while not player_number.isdigit():
+                if player_number == "hop":
+                    return record   
                 print("Invalid input, please enter a number")
                 player_number = input("Player: ")
 
             player_number = int(player_number)
             
             if player_number != curent_number:
-                print("You lost")
-                break
+                return record
             
             curent_number += 1
             record += 1
             cpu = not cpu
         else:
             if player_number != "hop":
-                print("You lost")
-                break
+                return record
             curent_number += 1
             record += 1
             cpu = not cpu
             
-    print(">--------------<")
-    print("Game over")
     return record    
 
     
@@ -68,7 +62,8 @@ while True:
     score = game()
     if score > max_record:
         max_record = score
-        
+    print(">--------------<")
+    print("Game over")
     print(f"Your record is: {score}")
     print(f"Best score: {max_record}")
     print("---------------\n")
