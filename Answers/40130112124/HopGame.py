@@ -12,7 +12,7 @@ def game_over(record):
     print('______________________')
 
 
-def askToPlayAgain():
+def askToPlayAgain(cpu_number):
     answer = input('Wanna play again?(y/n): ')
     if answer == 'n':
         run = False
@@ -20,6 +20,9 @@ def askToPlayAgain():
         exit()
     else:
         print('WELCOME BACK ^*^')
+        global record
+        record = 0
+        cpu_number += 1
 
 
 number = int(input('Enter the number: '))
@@ -30,17 +33,17 @@ print('CPU:', cpu_number)
 
 print('GAME STARTED...!')
 print('______________________')
+
 while run:
     player_input = input('Player: ')
     record += 1
 
-    if (cpu_number + 1) % number == 0 and player_input != 'hop' or (
-            cpu_number + 1) % number != 0 and player_input == 'hop':
+    if ((cpu_number + 1) % number == 0 and player_input != 'hop' or
+            (cpu_number + 1) % number != 0 and player_input == 'hop' or
+            (cpu_number + 1) % number != 0 and int(player_input) != cpu_number + 1):
         Best_record.append(record)
         game_over(record)
-        askToPlayAgain()
-        record = 0
-        cpu_number += 1
+        askToPlayAgain(cpu_number)
     else:
         cpu_number += 2
         if cpu_number % number == 0:
