@@ -5,17 +5,17 @@ ArrayOfScore=[];
 while(True):
     if(startgame):
         try:
-            print("Choose a number as the hoop factor:")
+            print("Choose a number as the hop factor:")
             factor=int(input())
         except:
-            print("Wrong amount!!(The hoop coefficient must be a number for example: 2,10,...)")
+            print("Wrong amount!!(The hop coefficient must be a number for example: 2,10,...)")
             continue
         numberOfGame=randint(0,factor**2)
         if(numberOfGame%factor==0):
             continue;
         else:
-            print(f"\nThe hoop coefficient is {factor}")
-            print("print hope If it was the hop coefficient\n")
+            print(f"\nThe hop coefficient is {factor}")
+            print("print hop If it was the hop coefficient\n")
             print("Start Game:")
             startgame=False
             Score=0
@@ -23,7 +23,7 @@ while(True):
         numberOfGame+=1
     print("CPU:",end =" ")
     if(numberOfGame%factor==0):
-        print("hope")
+        print("hop")
     else:
         print(numberOfGame)
 
